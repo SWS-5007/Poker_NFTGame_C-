@@ -851,7 +851,7 @@ Jump:
         c.name = val;
 		c.GetComponent<BBCard>().v2_value = vCard;
         c.GetComponent<BBCard>().setCardImage(vCard);
-
+		
         if(excludeGiveAllCardOpen) {
           if(wantRotate) {
 				c.transform.rotation = rotatedCardRotation;
