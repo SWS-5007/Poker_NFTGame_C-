@@ -134,12 +134,12 @@ public class BBMoveingObjectsController : MonoBehaviour {
 			if(notStillMove < 1) {
 			       if(isMultiplayer) {
 						#if USE_PHOTON
-						if(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.gamePhaseDetail == BBGlobalDefinitions.GamePhaseDetail.SmallBlind) {
-						}
-						else if(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.gamePhaseDetail == BBGlobalDefinitions.GamePhaseDetail.BigBlind) {
-						}
-						else if(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.gamePhaseDetail == BBGlobalDefinitions.GamePhaseDetail.GiveingCards) {
-						}
+						// if(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.gamePhaseDetail == BBGlobalDefinitions.GamePhaseDetail.SmallBlind) {
+						// }
+						// else if(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.gamePhaseDetail == BBGlobalDefinitions.GamePhaseDetail.BigBlind) {
+						// }
+						// else if(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.gamePhaseDetail == BBGlobalDefinitions.GamePhaseDetail.GiveingCards) {
+						// }
 						#endif
 			       } else {
 						if(GetComponent<BBGameController>()._BBGlobalDefinitions.gamePhaseDetail == BBGlobalDefinitions.GamePhaseDetail.SmallBlind) {
@@ -172,7 +172,7 @@ public class BBMoveingObjectsController : MonoBehaviour {
 		int splitted = 0;
 		if(isMultiplayer) {
 				#if USE_PHOTON
-				splitted = (int)val / (int)GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.limitedLow;
+				// splitted = (int)val / (int)GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.limitedLow;
 				#endif
 		} else {
 			splitted = (int)val / (int)GetComponent<BBGameController>()._BBGlobalDefinitions.limitedLow;
@@ -182,7 +182,7 @@ public class BBMoveingObjectsController : MonoBehaviour {
 		if(splitted == 1) {
 				if(isMultiplayer) {
 					#if USE_PHOTON
-					yield return StartCoroutine( createAndMoveChipFromTo(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.smallBlindValue,chipGREEN,_from,_to) );
+					// yield return StartCoroutine( createAndMoveChipFromTo(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.smallBlindValue,chipGREEN,_from,_to) );
 					#endif
 				} else {
 					yield return StartCoroutine( createAndMoveChipFromTo(GetComponent<BBGameController>()._BBGlobalDefinitions.smallBlindValue,chipGREEN,_from,_to) );
@@ -191,7 +191,7 @@ public class BBMoveingObjectsController : MonoBehaviour {
 		} else if(splitted == 2) {
 				if(isMultiplayer) {
 					#if USE_PHOTON
-					yield return StartCoroutine( createAndMoveChipFromTo(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,_from,_to) );
+					// yield return StartCoroutine( createAndMoveChipFromTo(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,_from,_to) );
 					#endif
 				} else {
 					yield return StartCoroutine( createAndMoveChipFromTo(GetComponent<BBGameController>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,_from,_to) );
@@ -199,8 +199,8 @@ public class BBMoveingObjectsController : MonoBehaviour {
 		} else if(splitted == 3) {
 				if(isMultiplayer) {
 					#if USE_PHOTON
-					yield return StartCoroutine( createAndMoveChipFromTo(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,_from,_to) );
-					yield return StartCoroutine( createAndMoveChipFromTo(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.smallBlindValue,chipGREEN,_from,_to) );
+					// yield return StartCoroutine( createAndMoveChipFromTo(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,_from,_to) );
+					// yield return StartCoroutine( createAndMoveChipFromTo(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.smallBlindValue,chipGREEN,_from,_to) );
 					#endif
 				} else {
 					yield return StartCoroutine( createAndMoveChipFromTo(GetComponent<BBGameController>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,_from,_to) );
@@ -312,7 +312,7 @@ RepFor50_2:
 		int splitted = 0;
 		if(isMultiplayer) {
 				#if USE_PHOTON
-				splitted = (int)val / (int)GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.limitedLow;
+				// splitted = (int)val / (int)GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.limitedLow;
 				#endif
 		} else {
 			splitted = (int)val / (int)GetComponent<BBGameController>()._BBGlobalDefinitions.limitedLow;
@@ -322,7 +322,7 @@ RepFor50_2:
 		if(splitted == 1) {
 				if(isMultiplayer) {
 					#if USE_PHOTON
-					yield return StartCoroutine( createAndMoveChip(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.smallBlindValue,chipGREEN,playerID,position) );
+					// yield return StartCoroutine( createAndMoveChip(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.smallBlindValue,chipGREEN,playerID,position) );
 					#endif
 				} else {
 					yield return StartCoroutine( createAndMoveChip(GetComponent<BBGameController>()._BBGlobalDefinitions.smallBlindValue,chipGREEN,playerID,position) );
@@ -331,7 +331,7 @@ RepFor50_2:
 		} else if(splitted == 2) {
 				if(isMultiplayer) {
 					#if USE_PHOTON
-					yield return StartCoroutine( createAndMoveChip(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,playerID,position) );
+					// yield return StartCoroutine( createAndMoveChip(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,playerID,position) );
 					#endif
 				} else {
 					yield return StartCoroutine( createAndMoveChip(GetComponent<BBGameController>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,playerID,position) );
@@ -339,8 +339,8 @@ RepFor50_2:
 		} else if(splitted == 3) {
 				if(isMultiplayer) {
 					#if USE_PHOTON
-					yield return StartCoroutine( createAndMoveChip(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,playerID,position) );
-					yield return StartCoroutine( createAndMoveChip(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.smallBlindValue,chipGREEN,playerID,position) );
+					// yield return StartCoroutine( createAndMoveChip(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,playerID,position) );
+					// yield return StartCoroutine( createAndMoveChip(GetComponent<NewGameControllerMultiplayer>()._BBGlobalDefinitions.smallBlindValue,chipGREEN,playerID,position) );
 					#endif
 				} else {
 					yield return StartCoroutine( createAndMoveChip(GetComponent<BBGameController>()._BBGlobalDefinitions.bigBlindValue,chipBLUE,playerID,position) );

@@ -15,7 +15,7 @@ public class BBPlayerData {
  public int playerPosition;
  public bool isLocalPlayer = false;
  #if USE_PHOTON
- public  NewResultEngine.CompleteResultStruct completeResultStruct;
+//  public  NewResultEngine.CompleteResultStruct completeResultStruct;
  #endif
  public bool isOutOfGame = false;
  public bool runOutOfMoney = false;
