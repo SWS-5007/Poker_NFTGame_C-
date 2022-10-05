@@ -36,7 +36,7 @@ public class BBMainMenuController : MonoBehaviour {
 #if !USE_UNITY_IAP
 			GameObject buttBuyCoins = GameObject.Find("ButtonBuyCoins");
 			if(buttBuyCoins) {
-			  Destroy(buttBuyCoins);
+			//   Destroy(buttBuyCoins);
 			}
 
 	   if(PlayerPrefs.HasKey("MPGeneralPlayerMoney")) {
