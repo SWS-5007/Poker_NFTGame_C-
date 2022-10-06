@@ -40,6 +40,7 @@ public class BBGameController : MonoBehaviour {
 	BBGuiInterface _BBGuiInterface;
 
 	Quaternion rotatedCardRotation;
+	Quaternion rotatedCardRotation180;
 	[HideInInspector]
 	public Transform cardsDiscardPosition;
 	[HideInInspector]
@@ -135,6 +136,7 @@ public class BBGameController : MonoBehaviour {
 		GetComponent<BBSoundController>().playClip(GetComponent<BBSoundController>().cardsShuffle);
 
 		rotatedCardRotation = GameObject.Find("RotatedCardOnTable").transform.rotation;
+		rotatedCardRotation180 = GameObject.Find("RotatedCardOnTable180").transform.rotation;
 		cardsDiscardPosition = GameObject.Find("RotatedCardOnTable").transform;
 
 	   _BBGlobalDefinitions.playersOnTable = _BBGuiInterface.m_PlayersDataList.Length;
@@ -471,21 +473,17 @@ public class BBGameController : MonoBehaviour {
 		_BBGuiInterface.TextGamePhaseInfo.text = "Starting FLOP...";
 
 		yield return new WaitForSeconds(1);
-
 		yield return StartCoroutine( giveOneCard(_BBGlobalDefinitions.currentActivedealer,cardsDiscardPosition,true) );
 
 		yield return new WaitForSeconds(1);
-
 		yield return StartCoroutine( giveOneCard(_BBGlobalDefinitions.currentActivedealer,GameObject.Find("openCard_1").transform,false) );
 		flopCardList[0] = currentGivenCard;
-
+		
 		yield return new WaitForSeconds(1);
-
 		yield return StartCoroutine( giveOneCard(_BBGlobalDefinitions.currentActivedealer,GameObject.Find("openCard_2").transform,false) );
 		flopCardList[1] = currentGivenCard;
 
 		yield return new WaitForSeconds(1);
-
 		yield return StartCoroutine( giveOneCard(_BBGlobalDefinitions.currentActivedealer,GameObject.Find("openCard_3").transform,false) );
 		flopCardList[2] = currentGivenCard;
 		Debug.Log("*******************************[BBGameController][startExecuteFlopPhase]************************** cards : " + 
@@ -679,7 +677,6 @@ public class BBGameController : MonoBehaviour {
 		cartToGive = getCard(GlobalDeck[lastGivenCardIdx],wantRotate,true);
 
 		cartToGive.transform.position = GetComponent<BBMoveingObjectsController>().playersChipStartingPoint[startPosPlayerId].position;
-
 		yield return new WaitForEndOfFrame();
 		yield return StartCoroutine( GetComponent<BBMoveingObjectsController>().moveCard(cartToGive, destPos) );
 
@@ -707,8 +704,6 @@ public class BBGameController : MonoBehaviour {
 				      cartToGive = getCard(GlobalDeck[x],wantRotate);
 
 				   tmpCounter++;
-
-			       //Debug.Log("[BBGameController][startGiveCards] posVal : " + posVal);
 
 			       if(tmpCounter == 1) {
 				      playerDataList[posVal].card_1_Value = GlobalDeck[x];
@@ -851,11 +846,14 @@ Jump:
         c.name = val;
 		c.GetComponent<BBCard>().v2_value = vCard;
         c.GetComponent<BBCard>().setCardImage(vCard);
+
 		
         if(excludeGiveAllCardOpen) {
           if(wantRotate) {
 				c.transform.rotation = rotatedCardRotation;
-          }
+          } else {
+				c.transform.rotation = rotatedCardRotation180;
+		  }
         }
 
         return c;
@@ -878,7 +876,12 @@ Jump:
             } else {
                c.transform.rotation = rotatedCardRotation;
             }
-         }
+         } else {
+			if(giveAllCardsOpen) {
+            } else {
+               c.transform.rotation = rotatedCardRotation180;
+            }
+		 }
 
         return c;
      }
