@@ -150,7 +150,7 @@ public class BBGuiInterface : MonoBehaviour {
 			   if(_BBGameController._BBGlobalDefinitions.playersStateIsOutDuringOpenGame[x]) {
 				   pDataList[x].playerActiveImage.color = Color.blue;
 			   } else {
-			       pDataList[x].playerActiveImage.color = Color.red;
+			       pDataList[x].playerActiveImage.color = Color.white;
 			   }
 
 			PlayerActiveImageList.Add(pDataList[x].playerActiveImage);
