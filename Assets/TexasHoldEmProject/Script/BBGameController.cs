@@ -697,14 +697,17 @@ public class BBGameController : MonoBehaviour {
 	    int tmpCounter = 0;
 		int tmpProgressivePlayer = 0;
 	   for(int x = 0;x < (playerDataList.Count * 2);x++) {
-
+					
 			         string[] data = shuffledCardsList[x].transform.name.Split(new char[] { '_' }); 
+					 Debug.Log(shuffledCardsList[x].transform.name);
 			         int posVal = int.Parse(data[0]);
 			          bool wantRotate = (posVal != _BBGlobalDefinitions.localPlayer);
 				      cartToGive = getCard(GlobalDeck[x],wantRotate);
 
 				   tmpCounter++;
-
+					Debug.Log(tmpCounter);
+					Debug.Log(posVal);
+					Debug.Log(x);
 			       if(tmpCounter == 1) {
 				      playerDataList[posVal].card_1_Value = GlobalDeck[x];
 				      playerDataList[posVal].transform_card_1 = cartToGive.transform;
@@ -893,7 +896,7 @@ Jump:
 
 		int idx = startPos;
         int counter = 1;
-        int lastpos = (playersCardPositions.Length / 2) - 1;
+        int lastpos = (playerDataList.Count) - 1;
 
 
 		for(int x = 0;x < tmpRes.Length; x++) {

@@ -54,7 +54,7 @@ public class BBGuiInterface : MonoBehaviour {
 		GameObject BettingChipsButtons = GameObject.Find("BettingChipsButtons");
 		BettingChipsButtonsList = BettingChipsButtons.GetComponentsInChildren<Button>();
 		setBettingChipButtons(false,false,false,false);
-		SpotlightOnPlayersList = new GameObject[10];
+		SpotlightOnPlayersList = new GameObject[8];
 	
 
    }
@@ -418,7 +418,8 @@ public class BBGuiInterface : MonoBehaviour {
 	}
 
 	public void setPlayerBetType(int playerID, string type) {
-	 _BBGameController.playerDataList[playerID].T_TextPlayerBetType.text = type;
+		PlayerActiveImageList[playerID].color = Color.white;
+	 	_BBGameController.playerDataList[playerID].T_TextPlayerBetType.text = type;
 	}
 
 	public void setLastBetValue(float val) {

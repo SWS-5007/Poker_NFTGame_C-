@@ -132,7 +132,7 @@ public class BBFlopPhaseAIController : MonoBehaviour {
 					}
 
 		             playerCounter++;
-					 if(playerCounter == 10) playerCounter = 0;
+					 if(playerCounter == 8) playerCounter = 0;
 
 					               if(BBGC.playerDataList[playerCounter].isOutOfGame)
 							           yield return new WaitForSeconds(BBStaticData.waitForPlayerCheckOut);
@@ -184,7 +184,7 @@ public class BBFlopPhaseAIController : MonoBehaviour {
 			}
 
 			playerCounter++;
-			if(playerCounter == 10) playerCounter = 0;
+			if(playerCounter == 8) playerCounter = 0;
 
 			               if(BBGC.playerDataList[playerCounter].isOutOfGame)
 					           yield return new WaitForSeconds(BBStaticData.waitForPlayerCheckOut);
@@ -192,8 +192,6 @@ public class BBFlopPhaseAIController : MonoBehaviour {
 				               yield return new WaitForSeconds(BBStaticData.waitForPlayerCheck);
 
 			               GetComponent<BBGuiInterface>().setPlayerBetType(playerCounter,"");
-			           
-
 
 		}
 
@@ -375,7 +373,6 @@ public class BBFlopPhaseAIController : MonoBehaviour {
 
 
 		GetComponent<BBGuiInterface>().setPlayerBetType(playerID,action);
-	
 
 	   yield break;
 	}
