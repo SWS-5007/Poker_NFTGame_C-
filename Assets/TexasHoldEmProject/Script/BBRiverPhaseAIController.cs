@@ -72,7 +72,7 @@ public class BBRiverPhaseAIController : MonoBehaviour {
 			}
 
              playerCounter++;
-			 if(playerCounter == 10) playerCounter = 0;
+			 if(playerCounter == 8) playerCounter = 0;
 
 			               if(BBGC.playerDataList[playerCounter].isOutOfGame)
 					           yield return new WaitForSeconds(BBStaticData.waitForPlayerCheckOut);
@@ -128,6 +128,7 @@ public class BBRiverPhaseAIController : MonoBehaviour {
 	}
 
 	IEnumerator executeAIOnRiverAction(int playerID) {
+
 	 BBGC._BBGlobalDefinitions.gamePhaseDetail = BBGlobalDefinitions.GamePhaseDetail.River;
 	 int cardValCoeff = BBGC.playerDataList[playerID].coeffCardsValOnFlopPhase;
 	 int cardMaxVal = BBGC.playerDataList[playerID].maxCardValOnFlopPhase;
@@ -198,6 +199,7 @@ public class BBRiverPhaseAIController : MonoBehaviour {
 	}
 
 	IEnumerator executeFinishRiverRound() {
+
 	    BBGC._BBGlobalDefinitions.gamePhaseDetail = BBGlobalDefinitions.GamePhaseDetail.ClosingRiver;
 		GetComponent<BBGuiInterface>().TextGamePhase.text = "Phase : " + BBGC._BBGlobalDefinitions.gamePhaseDetail;
 
@@ -227,7 +229,7 @@ public class BBRiverPhaseAIController : MonoBehaviour {
 			}
 
 			playerCounter++;
-			if(playerCounter == 10) playerCounter = 0;
+			if(playerCounter == 8) playerCounter = 0;
 
 			               if(BBGC.playerDataList[playerCounter].isOutOfGame)
 					           yield return new WaitForSeconds(BBStaticData.waitForPlayerCheckOut);

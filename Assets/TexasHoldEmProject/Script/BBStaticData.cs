@@ -218,7 +218,9 @@ public class BBStaticData : MonoBehaviour {
 			if( (img[x].color == Color.black) || (img[x].color == Color.blue) ) {
 
 			} else {
-				img[x].color = Color.red;
+				Color c = new Color();
+				c.a = 0;				
+				img[x].color = c;
 			}
 		 }
 	  }

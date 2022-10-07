@@ -77,7 +77,7 @@ public class BBTurnPhaseAIController : MonoBehaviour {
 			}
 
              playerCounter++;
-			 if(playerCounter == 10) playerCounter = 0;
+			 if(playerCounter == 8) playerCounter = 0;
 
 			               if(BBGC.playerDataList[playerCounter].isOutOfGame)
 					           yield return new WaitForSeconds(BBStaticData.waitForPlayerCheckOut);
@@ -94,6 +94,7 @@ public class BBTurnPhaseAIController : MonoBehaviour {
 
 
 	IEnumerator executeFinishTurnRound() {
+		
 	    BBGC._BBGlobalDefinitions.gamePhaseDetail = BBGlobalDefinitions.GamePhaseDetail.ClosingTurn;
 		GetComponent<BBGuiInterface>().TextGamePhase.text = "Phase : " + BBGC._BBGlobalDefinitions.gamePhaseDetail;
 
@@ -104,7 +105,6 @@ public class BBTurnPhaseAIController : MonoBehaviour {
 		int playerCounter = (int)BBGC._BBGlobalDefinitions.firstLastPlayerToTalkOnTable.x;
 
 		for(int x = 0; x < BBGC.playerDataList.Count;x++) {
-
 			if(!(BBGC.playerDataList[playerCounter].isOutOfGame) && !(BBGC._BBGlobalDefinitions.playersStateIsOutDuringOpenGame[playerCounter]) ) {
 
 				            GetComponent<BBGuiInterface>().activatePlayerToTalk(playerCounter);
@@ -128,7 +128,7 @@ public class BBTurnPhaseAIController : MonoBehaviour {
 			}
 
 			playerCounter++;
-			if(playerCounter == 10) playerCounter = 0;
+			if(playerCounter == 8) playerCounter = 0;
 
 			               if(BBGC.playerDataList[playerCounter].isOutOfGame)
 					           yield return new WaitForSeconds(BBStaticData.waitForPlayerCheckOut);

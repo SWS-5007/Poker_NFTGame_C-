@@ -69,8 +69,7 @@ public class BBPreFlopPhaseAIController : MonoBehaviour {
 	public IEnumerator executePreFlopFirstBetRound(int underGunPlayer) {
 
 	 int playerCounter = underGunPlayer;
-
-
+		
 		   if(isMultiplayer) {
 				#if USE_PHOTON_BB
 				if(BBGC_M.playerDataList[playerCounter].playerName == PhotonNetwork.player.name) {
@@ -101,7 +100,7 @@ public class BBPreFlopPhaseAIController : MonoBehaviour {
 					             }
 				     }
 				             playerCounter++;
-				             if(playerCounter == 10) playerCounter = 0; 
+				             if(playerCounter == 8) playerCounter = 0; 
 					               if(BBGC.playerDataList[playerCounter].isOutOfGame)
 							           yield return new WaitForSeconds(BBStaticData.waitForPlayerCheckOut);
 		                           else 
@@ -159,7 +158,7 @@ public class BBPreFlopPhaseAIController : MonoBehaviour {
 							}
 			 } 
                     playerCounter++;
-			        if(playerCounter == 10) playerCounter = 0;
+			        if(playerCounter == 8) playerCounter = 0;
 
 			               if(BBGC.playerDataList[playerCounter].isOutOfGame)
 					           yield return new WaitForSeconds(BBStaticData.waitForPlayerCheckOut);
@@ -180,7 +179,6 @@ public class BBPreFlopPhaseAIController : MonoBehaviour {
 		int coeffvalue = BBStaticData.getCardsPoint( BBGC.playerDataList[playerID].card_1_Value, BBGC.playerDataList[playerID].card_2_Value);
 
 		int useBluff = 0;
-
 		if(GetComponent<BBTestSimulationController>().useSimulate) {
 			if(GetComponent<BBTestSimulationController>().simulateAiPhasePlayers_FirstBettingRound[playerID] == BBGlobalDefinitions.GamePhaseDetail.FirstBettingRound) {
 				switch(GetComponent<BBTestSimulationController>().simulateAiCommandPlayers_FirstBettingRound[playerID]) {
@@ -273,6 +271,7 @@ public class BBPreFlopPhaseAIController : MonoBehaviour {
 
 	public IEnumerator executeFold(int playerID) {
 
+
 	  int activePlayer = 0;
 
 	  if(isMultiplayer) {
@@ -308,6 +307,7 @@ public class BBPreFlopPhaseAIController : MonoBehaviour {
 #endif
 
 	public IEnumerator executeCall(int playerID) {
+		Debug.Log("BetType_test_executeCall");
 	     if(isMultiplayer) {
 #if USE_PHOTON_BB
 				if(BBGC_M._BBGlobalDefinitions.gamePhaseDetail == BBGlobalDefinitions.GamePhaseDetail.FirstBettingRound) {
@@ -404,7 +404,6 @@ public class BBPreFlopPhaseAIController : MonoBehaviour {
 #endif
 
 	public IEnumerator executeRaise(int playerID) {
-
 			if(isMultiplayer) {
 				#if USE_PHOTON_BB
 				GetComponent<PhotonView>().RPC("RPCexecuteRaise",PhotonTargets.AllViaServer,playerID);
