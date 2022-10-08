@@ -42,7 +42,7 @@ public class BBPreFlopPhaseAIController : MonoBehaviour {
 			BBGC._BBGlobalDefinitions.currentActivePlayer = BBGC._BBGlobalDefinitions.smallBlindPlayerId;
 			if(BBStaticData.debugPreFlopController) Debug.Log("[BBPreFlopPhaseAIController][executeSmallBlindBet] smallBlindPlayerId : " + BBGC._BBGlobalDefinitions.smallBlindPlayerId);
 			GetComponent<BBGuiInterface>().simulateOnClickButton("BET_25");
-			GetComponent<BBGuiInterface>().setPlayerBetType(BBGC._BBGlobalDefinitions.currentActivePlayer,"SmallBlind");
+			GetComponent<BBGuiInterface>().setPlayerBetType(BBGC._BBGlobalDefinitions.currentActivePlayer,"Small");
 	  }
 	}
 
@@ -60,7 +60,7 @@ public class BBPreFlopPhaseAIController : MonoBehaviour {
 		  BBGC._BBGlobalDefinitions.currentActivePlayer = BBGC._BBGlobalDefinitions.bigBlindPlayerId;
 		  if(BBStaticData.debugPreFlopController) Debug.Log("[BBPreFlopPhaseAIController][executeSmallBlindBet] bigBlindPlayerId : " + BBGC._BBGlobalDefinitions.bigBlindPlayerId);
 		  GetComponent<BBGuiInterface>().simulateOnClickButton("BET_50");
-		  GetComponent<BBGuiInterface>().setPlayerBetType(BBGC._BBGlobalDefinitions.currentActivePlayer,"BigBlind");
+		  GetComponent<BBGuiInterface>().setPlayerBetType(BBGC._BBGlobalDefinitions.currentActivePlayer,"Big");
 		}
 	}
 
