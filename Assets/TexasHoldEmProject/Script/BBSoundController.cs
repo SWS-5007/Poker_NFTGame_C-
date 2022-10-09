@@ -1,36 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace BLabTexasHoldEmProject {
+namespace BLabTexasHoldEmProject
+{
+    public class BBSoundController : MonoBehaviour
+    {
+        public AudioClip pickCard;
+        public AudioClip moveCard;
+        public AudioClip chipHandle;
+        public AudioClip cardsShuffle;
+        public AudioClip genBip;
+        public AudioClip rotateCard;
+        [Header("Only Multiplayer")]
+        public AudioClip cleanCards;
+        [Header("Only Multiplayer")]
+        public AudioClip cleanChips;
 
-public class BBSoundController : MonoBehaviour {
+        // Use this for initialization
+        void Start() { }
 
- public AudioClip pickCard;
- public AudioClip moveCard;
- public AudioClip chipHandle;
- public AudioClip cardsShuffle;
- public AudioClip genBip;
- public AudioClip rotateCard;
- [Header("Only Multiplayer")]
- public AudioClip cleanCards;
- [Header("Only Multiplayer")]
- public AudioClip cleanChips;
+        // Update is called once per frame
+        void Update() { }
 
-
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	public void playClip(AudioClip ac) {
-	  GetComponent<AudioSource>().PlayOneShot(ac);
-	}
-
-}
+        public void playClip(AudioClip ac)
+        {
+            GetComponent<AudioSource>().PlayOneShot(ac);
+        }
+    }
 }

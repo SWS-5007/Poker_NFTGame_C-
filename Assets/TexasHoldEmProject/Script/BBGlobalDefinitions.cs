@@ -2,129 +2,157 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BLabTexasHoldEmProject {
+namespace BLabTexasHoldEmProject
+{
+    public class BBGlobalDefinitions : ScriptableObject
+    {
+        public bool useSimulateMoneyValueForLocalPlayer = false;
+        public float localPlayerMoneyValueSimulation = 4000;
 
-public class BBGlobalDefinitions : ScriptableObject {
+        public bool useSimulatedSavedData = false;
+        public bool useLastCardsHandSavedData = false;
 
-	public bool useSimulateMoneyValueForLocalPlayer = false;
-	public float localPlayerMoneyValueSimulation = 4000;
+        public enum GameType
+        {
+            Limited,
+            NoLimit
+        };
+        public enum GamePhaseGeneral
+        {
+            Closed,
+            Open
+        };
+        public enum GamePhaseDetail
+        {
+            None,
+            SmallBlind,
+            BigBlind,
+            GiveingCards,
+            FirstBettingRound,
+            ClosingPreFlop,
+            Flop,
+            ClosingFlop,
+            Turn,
+            ClosingTurn,
+            River,
+            ClosingRiver,
+            ShowDown,
+            ShowDownAllInOnFlop,
+            ShowDownAllInOnTurn,
+            ShowDownAllInOnRiver,
+            ClosingMoneyAllign,
+            AllIn
+        };
 
-    public bool useSimulatedSavedData = false;
-	public bool useLastCardsHandSavedData = false;
+        public GameType gameType;
+        public GamePhaseGeneral gamePhaseGeneral;
+        public GamePhaseDetail gamePhaseDetail;
+        public GamePhaseDetail lastPhaseBeforeAllignMoney;
+        public GamePhaseDetail allInRequestAtPhase;
 
-    public enum GameType {Limited,NoLimit};
-	public enum GamePhaseGeneral {Closed,Open};
-	public enum GamePhaseDetail {None,SmallBlind,BigBlind,GiveingCards,FirstBettingRound,ClosingPreFlop,Flop,ClosingFlop,Turn,
-		ClosingTurn,River,ClosingRiver,ShowDown,ShowDownAllInOnFlop,ShowDownAllInOnTurn,ShowDownAllInOnRiver,ClosingMoneyAllign,AllIn};
+        public bool useDeepLog = false;
+        public int playersOnTable = 0;
+        public int currentActivePlayer = 0;
+        public int currentActivedealer = 0;
 
-	public GameType gameType;
-	public GamePhaseGeneral gamePhaseGeneral;
-	public GamePhaseDetail gamePhaseDetail;
-	public GamePhaseDetail lastPhaseBeforeAllignMoney;
-	public GamePhaseDetail allInRequestAtPhase;
+        public float limitedLow = 25;
+        public float limitedHight = 50;
 
-	public bool useDeepLog = false;
-	public int playersOnTable = 0;
-	public int currentActivePlayer = 0;
-	public int currentActivedealer = 0;
+        public int localPlayer = 1;
 
-	public float limitedLow = 25;
-	public float limitedHight = 50;
+        public int playerToTalk = 0;
 
-	public int localPlayer = 1;
+        public int roundRaiseCounter = 0;
 
-	public int playerToTalk = 0;
+        public float smallBlindValue = 25;
 
-	public int roundRaiseCounter = 0;
+        public float bigBlindValue = 50;
 
-	public float smallBlindValue = 25;
+        public float moneyOnTable = 0;
 
-	public float bigBlindValue = 50;
+        public int smallBlindPlayerId = 0;
 
-	public float moneyOnTable = 0;
+        public int bigBlindPlayerId = 0;
 
-	public int smallBlindPlayerId = 0;
+        public float lastBet = 0;
 
-	public int bigBlindPlayerId = 0;
+        public float firstBettingRoundValueToPlay = 0;
 
-	public float lastBet = 0;
+        public Vector2 firstLastPlayerToTalkOnTable = new Vector2(0, 9);
 
-	public float firstBettingRoundValueToPlay = 0;
+        //public bool useLimitedRaiseTimes = true;
+        public string[] playersName = new string[10];
 
-	public Vector2 firstLastPlayerToTalkOnTable = new Vector2(0,9);
+        public float[] playersCashDuringOpenGame = new float[10];
+        public bool[] playersStateIsOutDuringOpenGame = new bool[10];
 
-	//public bool useLimitedRaiseTimes = true;
-	public string[] playersName = new string[10];
+        public float stackMoneyAtStart = 2000;
 
-	public float[] playersCashDuringOpenGame = new float[10];
-	public bool[] playersStateIsOutDuringOpenGame = new bool[10];
+        public bool isAnOpenGame = false;
 
-	public float stackMoneyAtStart = 2000;
+        public void resetInitialPlayerIsOutState()
+        {
+            for (int x = 0; x < playersStateIsOutDuringOpenGame.Length; x++)
+            {
+                playersStateIsOutDuringOpenGame[x] = false;
+            }
+        }
 
+        public void savePlayersCashDuringGame(float[] playersCashValue)
+        {
+            for (int x = 0; x < playersCashDuringOpenGame.Length; x++)
+            {
+                playersCashDuringOpenGame[x] = playersCashValue[x];
+            }
+        }
 
-	public bool isAnOpenGame = false;
+        public void loadInitialPlayersCashDuringGame()
+        {
+            for (int x = 0; x < playersCashDuringOpenGame.Length; x++)
+            {
+                playersCashDuringOpenGame[x] = BBStaticData.gameLimitedStackValue;
+            }
+        }
 
+        public void setInitialData()
+        {
+            for (int f = 0; f < playersCashDuringOpenGame.Length; f++)
+            {
+                playersCashDuringOpenGame[f] = stackMoneyAtStart;
+            }
 
-	public void resetInitialPlayerIsOutState() {
-		for(int x = 0;x < playersStateIsOutDuringOpenGame.Length;x++) {
-			playersStateIsOutDuringOpenGame[x] = false;
-		}
-	}
+            playersOnTable = 0;
 
-	public void savePlayersCashDuringGame(float[] playersCashValue) {
-		for(int x = 0;x < playersCashDuringOpenGame.Length;x++) {
-	     playersCashDuringOpenGame[x] = playersCashValue[x];
-	   }
-	}
+            limitedLow = 25;
 
-	public void loadInitialPlayersCashDuringGame() {
-	   for(int x = 0;x < playersCashDuringOpenGame.Length;x++) {
-	         playersCashDuringOpenGame[x] = BBStaticData.gameLimitedStackValue;
-	   }
-	}
+            limitedHight = 50;
 
+            playerToTalk = 0;
 
-	public void setInitialData() {
+            roundRaiseCounter = 0;
 
-       for(int f = 0; f < playersCashDuringOpenGame.Length;f++) {
-			playersCashDuringOpenGame[f] = stackMoneyAtStart;
-       }
+            // smallBlindValue = 0;
 
-		playersOnTable = 0;
+            // bigBlindValue = 0;
 
-	    limitedLow = 25;
+            moneyOnTable = 0;
 
-	    limitedHight = 50;
+            firstBettingRoundValueToPlay = 0;
 
-	    playerToTalk = 0;
+            firstLastPlayerToTalkOnTable = Vector2.zero;
 
-	    roundRaiseCounter = 0;
+            currentActivePlayer = BBStaticData.currentActivePlayer;
 
-	   // smallBlindValue = 0;
+            currentActivedealer = BBStaticData.currentActivedealer;
 
-	   // bigBlindValue = 0;
+            localPlayer = BBStaticData.localPlayer;
 
-	    moneyOnTable = 0;
+            smallBlindPlayerId = BBStaticData.smallBlindPlayerId;
 
+            bigBlindPlayerId = BBStaticData.bigBlindPlayerId;
 
-		firstBettingRoundValueToPlay = 0;
-
-		firstLastPlayerToTalkOnTable = Vector2.zero;
-
-		currentActivePlayer = BBStaticData.currentActivePlayer;
-
-		currentActivedealer = BBStaticData.currentActivedealer;
-
-		localPlayer = BBStaticData.localPlayer;
-
-		smallBlindPlayerId = BBStaticData.smallBlindPlayerId;
-
-		bigBlindPlayerId = BBStaticData.bigBlindPlayerId;
-
-        //useLimitedRaiseTimes = true;
-		lastBet = limitedHight;
-
-	}
-
-}
+            //useLimitedRaiseTimes = true;
+            lastBet = limitedHight;
+        }
+    }
 }
