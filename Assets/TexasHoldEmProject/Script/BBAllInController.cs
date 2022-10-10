@@ -1211,6 +1211,7 @@ namespace BLabTexasHoldEmProject
                     tmpV.maxCVal = maxRes;
                     tmpV.isRoundOut = false;
                     tmpV.bestFive = getBestFive(res, x, tmpV.card_1, tmpV.card_2);
+                    Debug.Log("----@@@@@@@@__  " + tmpV.bestFive);
                     playersCVal.Add(tmpV);
                 }
 

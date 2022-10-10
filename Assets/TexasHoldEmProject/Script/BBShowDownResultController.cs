@@ -161,6 +161,7 @@ namespace BLabTexasHoldEmProject
                     tmpV.isRoundOut = false;
                     tmpV.bestFive = getBestFive(res, x, tmpV.card_1, tmpV.card_2);
                     //playersCVal[x] = tmpV;
+                    Debug.Log(tmpV.bestFive[0]);
                     playersCVal.Add(tmpV);
                 }
                 if (logResult)
@@ -3571,16 +3572,33 @@ namespace BLabTexasHoldEmProject
                         break;
                 }
             }
-            string res =
-                tmpRes[0]
-                + " - "
-                + tmpRes[1]
-                + " - "
-                + tmpRes[2]
-                + " - "
-                + tmpRes[3]
-                + " - "
-                + tmpRes[4];
+            string res = "";
+            bool flag = true;
+            for (int x = 0; x < tmpRes.Length; x++)
+            {
+                if (tmpRes[x] != "0")
+                {
+                    
+                    if (flag)
+                    {
+                        res += tmpRes[x];
+                        flag = false;
+                    }
+                    else
+                        res += " - " + tmpRes[x];
+                }
+                    
+            }
+            // string res =
+            //     tmpRes[0]
+            //     + " - "
+            //     + tmpRes[1]
+            //     + " - "
+            //     + tmpRes[2]
+            //     + " - "
+            //     + tmpRes[3]
+            //     + " - "
+            //     + tmpRes[4];
             return res;
         }
     }
