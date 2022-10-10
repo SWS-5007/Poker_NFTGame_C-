@@ -50,8 +50,9 @@ namespace BLabTexasHoldEmProject
         public static string getMoneyValue(float val)
         {
             // return String.Format("{0:0.0}", val + " $");
-
-            return String.Format("{0:C}", val);
+            // int Temp_val = 0;
+            // Temp_val = (int)(val);
+            return String.Format("{0:C0}", val);
         }
 
         public static bool IsOdd(int value)
