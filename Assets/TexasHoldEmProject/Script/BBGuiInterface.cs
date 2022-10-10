@@ -626,11 +626,23 @@ namespace BLabTexasHoldEmProject
         public void setPlayerOUTGame(int playerID)
         {
             PlayerActiveImageList[playerID].color = Color.black;
+            m_PlayersDataList[playerID].transform.Find("PlayerUINamePanel").GetComponent<Image>().color = new Color (1, 1, 1, 0.3f);
+            m_PlayersDataList[playerID].transform.Find("TextPlayerName").GetComponent<Text>().color = new Color (1, 1, 1, 0.3f);
+            m_PlayersDataList[playerID].transform.Find("AvatarImage").GetComponent<Image>().color = new Color (1, 1, 1, 0.3f);
+            m_PlayersDataList[playerID].transform.Find("TextPlayerMoneyOnTable").GetComponent<Text>().color = new Color (1, 1, 1, 0.3f);
+            m_PlayersDataList[playerID].transform.Find("TextPlayerMoneyTotal").GetComponent<Text>().color = new Color (1, 1, 1, 0.3f);
+            m_PlayersDataList[playerID].transform.Find("PlayerDealerImage").GetComponent<Image>().color = new Color (1, 1, 1, 0.3f);
+            m_PlayersDataList[playerID].transform.Find("YouImage").GetComponent<Image>().color = new Color (1, 1, 1, 0.3f);
+            m_PlayersDataList[playerID].transform.Find("TextPlayerBetType").GetComponent<Text>().color = new Color (1, 1, 1, 0.3f);
         }
 
         public void setPlayerBetType(int playerID, string type)
         {
-            PlayerActiveImageList[playerID].color = Color.white;
+            Debug.Log("Set Player Bet Type :" + playerID + "   type : " + type);
+
+            if (type == "Fold" && PlayerActiveImageList[playerID].color == Color.black || PlayerActiveImageList[playerID].color == new Color(0,0,0,0.3f)) {}
+            else 
+                PlayerActiveImageList[playerID].color = Color.white;
             _BBGameController.playerDataList[playerID].T_TextPlayerBetType.text = type;
         }
 
