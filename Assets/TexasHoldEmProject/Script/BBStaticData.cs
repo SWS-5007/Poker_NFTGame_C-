@@ -232,7 +232,10 @@ namespace BLabTexasHoldEmProject
             {
                 if (img[x] != null)
                 {
-                    if ((img[x].color == Color.black) || (img[x].color == Color.blue)) { }
+                    if ((img[x].color == new Color(0,0,0,0.3f)) || (img[x].color == Color.black)) 
+                    {
+                        img[x].color = new Color(0,0,0,0.3f);
+                    } else if (img[x].color == Color.blue) { }
                     else
                     {
                         Color c = new Color();
