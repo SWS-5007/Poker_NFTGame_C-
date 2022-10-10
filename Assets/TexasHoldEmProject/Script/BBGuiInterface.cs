@@ -656,7 +656,7 @@ namespace BLabTexasHoldEmProject
             _BBGameController._BBGlobalDefinitions.moneyOnTable += val;
 
             TextGamePOT.text =
-                "Pot : "
+                " "
                 + BBStaticData.getMoneyValue(_BBGameController._BBGlobalDefinitions.moneyOnTable);
         }
 
