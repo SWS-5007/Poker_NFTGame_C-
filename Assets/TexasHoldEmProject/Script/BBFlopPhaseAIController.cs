@@ -130,6 +130,7 @@ namespace BLabTexasHoldEmProject
 
         public IEnumerator startExecuteFlopResult()
         {
+            Debug.Log("startExecuteFlopResult");
             if (isMultiplayer) { }
             else
             {

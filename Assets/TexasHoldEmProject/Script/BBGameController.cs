@@ -643,6 +643,7 @@ namespace BLabTexasHoldEmProject
 
         public IEnumerator startExecuteFlopPhase()
         {
+            Debug.Log("startExecuteFlopPhase");
             Debug.Log(
                 "*******************************[BBGameController][startExecuteFlopPhase]**************************"
             );
@@ -924,6 +925,7 @@ namespace BLabTexasHoldEmProject
 
         public void dealerStartGiveCards()
         {
+            Debug.Log("dealerStartGiveCards");
             _BBGuiInterface.activateDealer();
             _BBGlobalDefinitions.gamePhaseDetail = BBGlobalDefinitions.GamePhaseDetail.GiveingCards;
             _BBGuiInterface.TextGamePhase.text =
@@ -955,6 +957,7 @@ namespace BLabTexasHoldEmProject
 
         IEnumerator startGiveCards()
         {
+            Debug.Log("startGiveCards");
             int startingPos = _BBGlobalDefinitions.currentActivedealer + 1;
 
             if (startingPos == 10)
@@ -1028,6 +1031,7 @@ namespace BLabTexasHoldEmProject
 
         void executeFirstBettingRound()
         {
+            Debug.Log("executeFirstBettingRound");
             _BBGuiInterface.TextGamePhase.text =
                 "Phase : " + _BBGlobalDefinitions.gamePhaseDetail.ToString();
             _BBGuiInterface.TextGamePhaseInfo.text = BBStaticData.phaseMessageInfoFirstBettingRound;
