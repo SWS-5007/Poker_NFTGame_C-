@@ -277,7 +277,9 @@ namespace BLabTexasHoldEmProject
             }
             else
             {
-                StartCoroutine(BBGC.startExecuteTurnPhase());
+                // StartCoroutine(BBGC.startExecuteTurnPhase());
+                StartCoroutine(BBGC.startExecuteShowDownPhase());
+                
             }
 
             yield break;

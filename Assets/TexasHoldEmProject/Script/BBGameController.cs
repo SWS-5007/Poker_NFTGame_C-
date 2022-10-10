@@ -362,6 +362,7 @@ namespace BLabTexasHoldEmProject
 
         IEnumerator ie_gotGameActionButton(GameObject _go)
         {
+            Debug.Log("ie_gotGameActionButton");
             switch (_go.name)
             {
                 case "buttonGameCALL":
@@ -834,16 +835,17 @@ namespace BLabTexasHoldEmProject
 
         void gotGameActionButton(GameObject _go)
         {
+            Debug.Log("gotGameActionButton");
             Debug.Log(
                 "[BBGameController][gotGameActionButton]------> : "
                     + _go.name
-                    + "\n _BBGlobalDefinitions.playerToTalk : "
+                    + "--- _BBGlobalDefinitions.playerToTalk : "
                     + _BBGlobalDefinitions.playerToTalk
-                    + "\n phase : "
+                    + "--- phase : "
                     + _BBGlobalDefinitions.gamePhaseDetail
-                    + "\n waitingForManualButtonResponce : "
+                    + "--- waitingForManualButtonResponce : "
                     + waitingForManualButtonResponce
-                    + "\n _go : "
+                    + "--- _go : "
                     + _go.name
             );
             StartCoroutine(ie_gotGameActionButton(_go));
