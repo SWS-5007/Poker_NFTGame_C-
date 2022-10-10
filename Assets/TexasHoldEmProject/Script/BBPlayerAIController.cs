@@ -28,6 +28,7 @@ namespace BLabTexasHoldEmProject
 
         public IEnumerator executeFlopResult()
         {
+            Debug.Log("exeuteFlopResult");
             StartCoroutine(GetComponent<BBFlopPhaseAIController>().startExecuteFlopResult());
             yield break;
         }

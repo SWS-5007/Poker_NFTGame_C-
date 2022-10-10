@@ -103,6 +103,7 @@ namespace BLabTexasHoldEmProject
 
         public IEnumerator executePreFlopFirstBetRound(int underGunPlayer)
         {
+            Debug.Log("executePreFlopFirstBetRound");
             int playerCounter = underGunPlayer;
 
             if (isMultiplayer)
@@ -184,6 +185,7 @@ namespace BLabTexasHoldEmProject
 
         IEnumerator executePreFlopLastBetChecking()
         {
+            Debug.Log("executePreFlopLastBetChecking");
             BBGC._BBGlobalDefinitions.gamePhaseDetail =
                 BBGlobalDefinitions.GamePhaseDetail.ClosingPreFlop;
             GetComponent<BBGuiInterface>().TextGamePhase.text =
