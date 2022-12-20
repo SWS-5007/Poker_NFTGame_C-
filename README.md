@@ -1,13 +1,14 @@
 # Poker Game
 
+![image](https://user-images.githubusercontent.com/9028177/208679289-e1ea55df-541b-41c7-901a-d535bdeef318.png)
+
+![image](https://user-images.githubusercontent.com/9028177/208679443-7aa4a201-8422-4850-9ec4-c928f1c2d234.png)
+
 The poker game was made for NFT games with a different logic from previous poker games.
 
 -	There are 3 flip cards, 1 turn card and 1 river card in regular poker but this project only has 3 flip cards.
 -	There are no small blinds, big blinds and bets on this project. 
 -	Instead of having no chips, there is a fee for subscribers
-
-## Demo
-
 
 ```
   Weight  |   Discription   |  Example
@@ -34,6 +35,9 @@ The poker game was made for NFT games with a different logic from previous poker
 ----------+-----------------+-------------------------
     11    |    High Card    |  A K Q J 10 9 8 7 6 5 4 3 2
 ```
+
+### Demo
+simmer.io/@JamesR/poker
 
 ## Unity Version
 2021.3.0f
