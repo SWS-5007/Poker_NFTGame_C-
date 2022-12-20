@@ -2,6 +2,10 @@
 
 The poker game was made for NFT games with a different logic from previous poker games.
 
+-	There are 3 flip cards, 1 turn card and 1 river card in regular poker but this project only has 3 flip cards.
+-	There are no small blinds, big blinds and bets on this project. 
+-	Instead of having no chips, there is a fee for subscribers
+
 
 ```
   Weight  |   Discription   |  Example
