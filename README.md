@@ -2,7 +2,8 @@
 
 The poker game was made for NFT games with a different logic from previous poker games.
 
-### Weight
+```
+Weight:
 
 1. Five of a kind (5 cards with same number/letter  3♥ 3♦ 3♣ 3♠ 3♠)
 2. Royal flush (A,K,Q,J of same suit)
@@ -15,6 +16,9 @@ The poker game was made for NFT games with a different logic from previous poker
 9. Two pair (like normal poker J♥ J♣ 4♣ 4♠ 9♥)
 10. Pair (like normal poker 4♥ 4♠ K♠ 10♦ 5♠)
 11. High Card (like normal poker A K Q J 10 9 8 7 6 5 4 3 2)
+
+```
+
 
 ### Unity Version
 2021.3.0f
