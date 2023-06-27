@@ -34,8 +34,7 @@ The poker game was made for NFT games with a different logic from previous poker
 
 ![image](https://user-images.githubusercontent.com/9028177/208679289-e1ea55df-541b-41c7-901a-d535bdeef318.png)
 
-## Demo
-https://simmer.io/@JamesR/poker 
+
 
 ## Unity Version
 2021.3.0f
